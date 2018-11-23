@@ -11,13 +11,15 @@ class voyageurController extends Controller
     {
         $this->middleware('auth');
     }
+
+
     //Get the voyageur list from the api
     public function getVoyageur()
     {
-        $url = "https://api-staging.globedreamers.fr/api/v1/users";
-        $vqr = file_get_contents($url);
-        $voyageur = json_decode($vqr,true)['data'];
+        $vqr = app('App\Http\Controllers\Toauth2Controller')->getusers();
 
-        return view('Voyageur/list',array('voyageur'=>$voyageur));
+        $voyageur = json_decode($vqr, true)['data'];
+
+        return view('Voyageur/list', array('voyageur' => $voyageur));
     }
 }

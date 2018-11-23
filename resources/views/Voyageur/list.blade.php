@@ -15,23 +15,31 @@
     </div>
 
     <div class="container">
-        <ul class="article-list-large">
+        <table class="table">
+            <thead>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Pseudo</th>
+            <th>Status</th>
+            <th>Email</th>
+            <th>Birthdate_eu</th>
+            <th>Phone</th>
+            <th>Company_name</th>
+            </thead>
+            <tbody>
             @foreach($voyageur as $v)
-                <li>
-                    <a href="#">
-                        <img src="assets/images/pictures/sahale-wa.jpg" alt="Green Beach"/>
-                    </a>
-
-                    <h2><a href="#">{!!$v['firstname']!!} {!!$v['lastname']!!}</a></h2>
-
-                    <p>{{$v['hobbies_list.name']}}</p>
-                    <p>{!!$v['role_list.Utilisateur']!!}</p>
-
-                    <span>by <a href="#">Author Name</a> &middot; 22nd Aug 2015</span>
-
-                    <div>17</div>
-                </li>
+                <tr>
+                    <td>{!!$v['firstname']!!}</td>
+                    <td>{!!$v['lastname']!!}</td>
+                    <td>{!!$v['pseudo']!!}</td>
+                    <td>{!!$v['status']!!}</td>
+                    <td>{!!$v['email']!!}</td>
+                    <td>{!!$v['birthdate_eu']!!}</td>
+                    <td>{!!$v['phone']!!}</td>
+                    <td>{!!$v['company_name']!!}</td>
+                </tr>
             @endforeach
-        </ul>
+            </tbody>
+        </table>
     </div>
 @endsection

@@ -29,12 +29,14 @@ class HomeController extends Controller
 
         $nbvoyage = count($voyage);
 
-        $url = "https://api-staging.globedreamers.fr/api/v1/travels/donations/list";
-        $vqr = file_get_contents($url);
-        $donation = json_decode($vqr, true)['data'];
+
+        $vqr = app('App\Http\Controllers\Toauth2Controller')->getusers();
+
+        $voyageur = json_decode($vqr, true)['data'];
+        $nbvoyageur = count($voyageur);
 
 
-        return view('home', array('nbvoyageur' => $nbvoyage));
+        return view('home', array('nbvoyageur' => $nbvoyageur, 'nbvoyage' => $nbvoyage));
 
     }
 }

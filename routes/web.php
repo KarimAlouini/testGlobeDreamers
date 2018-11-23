@@ -18,6 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/voyages', 'voyageController@getVoyage');
-Route::get('/voyageurs', 'voyageurController@getVoyageur');
-Route::get('/donations', 'donationController@getDonation');
+Route::get('/voyages', 'voyageController@getVoyage')->name('voyages');
+Route::get('/voyageurs', 'voyageurController@getVoyageur')->name('voyageurs');
+Route::get('/donations', 'donationController@getDonation')->name('donations');
+Route::get('/auth', 'voyageurController@testOuth')->name('home');
