@@ -15,17 +15,23 @@
     </div>
 
     <div class="container">
-        <ul class="article-list-large">
+
+        <table class="table">
+            <thead>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Content_why</th>
+            </thead>
+            <tbody>
             @foreach($voyage as $v)
-                <li>
+                <tr>
+                    <td>{!!$v['title']!!}</td>
+                    <td>{{$v['description']}}</td>
+                    <td>{!!$v['content_why']!!}</td>
+                </tr>
 
-                    <h2><a href="#">{!!$v['title']!!}</a></h2>
-
-                    <p>{{$v['description']}}</p>
-                    <p>{!!$v['content_why']!!}</p>
-
-                </li>
             @endforeach
-        </ul>
+            </tbody>
+        </table>
     </div>
 @endsection
